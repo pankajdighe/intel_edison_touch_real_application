@@ -16,12 +16,15 @@ console.log('MRAA Version: ' + mraa.getVersion()); //write the mraa version to r
 
 digital_pin_D6.write(0);
 
+var touch_sensor_value = 0, last_t_sensor_value;
+
 
 
 periodicActivity(); //call the periodicActivity function
 
 function periodicActivity()
 {
+
 
 	touch_sensor_value = digital_pin_D2.read();
 
@@ -33,7 +36,7 @@ function periodicActivity()
             //socket.emit('message', "absent");
             digital_pin_D6.write(touch_sensor_value);
         }
-        
+
         last_t_sensor_value = touch_sensor_value;
 
 
